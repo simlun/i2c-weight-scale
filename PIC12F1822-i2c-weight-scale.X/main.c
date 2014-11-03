@@ -16,7 +16,7 @@
 
 // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
-#pragma config PLLEN = ON       // PLL Enable (4x PLL enabled)
+#pragma config PLLEN = OFF       // PLL Enable (4x PLL enabled)
 #pragma config STVREN = ON      // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will cause a Reset)
 #pragma config BORV = HI        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), high trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
@@ -25,14 +25,26 @@
 #include <stdlib.h>
 
 
-#define _XTAL_FREQ 500000
+#define _XTAL_FREQ 16000000
+
+
+void configure_oscillator(void) {
+    // Set internal oscillator block
+    OSCCONbits.SCS = 0b10;
+
+    // Disable 4x PLL
+    OSCCONbits.SPLLEN = 0;
+
+    // Set internal oscillator frequency
+    OSCCONbits.IRCF = 0b1111; // 16 MHz
+}
 
 
 int main(void) {
-    // Set up data direction
+    configure_oscillator();
+
     TRISA5 = 0;
 
-    // Write to an output pin
     while (1) {
         PORTAbits.RA5 = 1;
         __delay_ms(1000);
