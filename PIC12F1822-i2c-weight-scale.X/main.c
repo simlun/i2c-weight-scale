@@ -22,6 +22,7 @@
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
 // #pragma config statements should precede project file includes.
+
 #include <stdlib.h>
 
 
@@ -40,9 +41,8 @@ void configure_oscillator(void) {
 }
 
 
-int main(void) {
-    configure_oscillator();
-
+void blink(void) {
+    // Set A5 pin as an output
     TRISA5 = 0;
 
     while (1) {
@@ -51,6 +51,10 @@ int main(void) {
         PORTAbits.RA5 = 0;
         __delay_ms(1000);
     }
+}
 
-    return (EXIT_SUCCESS);
+
+int main(void) {
+    configure_oscillator();
+    blink();
 }
