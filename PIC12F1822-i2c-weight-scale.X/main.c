@@ -1,7 +1,7 @@
 #include <xc.h>
 
+// ----------------------------------------------------------------------
 // PIC12F1822 Configuration Bit Settings
-
 // CONFIG1
 #pragma config FOSC = INTOSC    // Oscillator Selection (INTOSC oscillator: I/O function on CLKIN pin)
 #pragma config WDTE = OFF       // Watchdog Timer Enable (WDT disabled)
@@ -21,12 +21,31 @@
 #pragma config BORV = HI        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), high trip point selected.)
 #pragma config LVP = OFF        // Low-Voltage Programming Enable (High-voltage on MCLR/VPP must be used for programming)
 
+#define _XTAL_FREQ 16000000
+
 // #pragma config statements should precede project file includes.
 
+
+// ----------------------------------------------------------------------
+// Includes and type declarations
 #include <stdlib.h>
+#include <stdint.h>
+
+typedef unsigned char bool;
+#define true 1
+#define false 0
 
 
-#define _XTAL_FREQ 16000000
+// ----------------------------------------------------------------------
+// Data
+volatile uint16_t foo;
+
+
+// ----------------------------------------------------------------------
+// Configuration and initialization functions
+void initialize_data_variables(void) {
+    foo = 0x1234;
+}
 
 
 void configure_oscillator(void) {
@@ -47,14 +66,8 @@ void configure_io(void) {
 }
 
 
-void blink_once(void) {
-    PORTAbits.RA5 = 1;
-    __delay_ms(500);
-    PORTAbits.RA5 = 0;
-    __delay_ms(500);
-}
-
-
+// ----------------------------------------------------------------------
+// I2C implementation
 void configure_i2c(void) {
     // Set SCL and SDA pins as inputs by settings the TRIS bits (p. 229)
     TRISA1 = 1; // SCL
@@ -66,13 +79,13 @@ void configure_i2c(void) {
 
     // Set I2C slave address to decimal 17
     SSP1ADDbits.SSPADD = 0b00100010; // Shifted 1 bit to the left
-    
+
     // Enable the MSSP module
     SSPCON1bits.SSPEN = 1;
 
     // Enable the MSSP interrupt
     SSP1IE = 1;
-    
+
     // Enable all active peripheral interrupts
     PEIE = 1;
 
@@ -80,9 +93,62 @@ void configure_i2c(void) {
     GIE = 1;
 }
 
+bool is_i2c_write_operation_and_got_address_byte(void) {
+    return false; // TODO
+}
 
+bool is_i2c_write_operation_and_got_data_byte(void) {
+    return false; // TODO
+}
+
+bool is_i2c_read_operation_and_got_address_byte(void) {
+    // S = 1, D_A = 0, R_W = 1
+    return (SSP1STATbits.S == 1 && SSP1STATbits.D_nA == 0 && SSP1STATbits.R_nW == 1);
+}
+
+/*
+ * Take a 16 bit source value and return the first 8 bits the first time this
+ * function is called, then return the last 8 bits the second time. The source
+ * value is stored and ignored for the second function call to protect it from
+ * getting inconsistent if the source changed in between calls.
+ *
+ * Useful for sending an uint16_t over I2C in two subsequent 8-bit writes.
+ */
+uint8_t chunked(uint16_t source) {
+    static bit index = 0;
+    static uint16_t my_source;
+
+    if (index == 0) {
+        my_source = source;
+    }
+
+    uint8_t chunks[2];
+    chunks[0] = my_source >> 8;
+    chunks[1] = (my_source << 8) >> 8;
+
+    uint8_t return_value = chunks[index];
+
+    index = !index;
+
+    return return_value;
+}
+
+
+// ----------------------------------------------------------------------
+// Logic functions
+void blink_once(void) {
+    PORTAbits.RA5 = 1;
+    __delay_ms(100);
+    PORTAbits.RA5 = 0;
+    __delay_ms(100);
+}
+
+
+// ----------------------------------------------------------------------
+// Main
 int main(void) {
     configure_oscillator();
+    initialize_data_variables();
     configure_io();
 
     blink_once();
@@ -95,45 +161,19 @@ int main(void) {
 }
 
 
-typedef unsigned char bool;
-#define true    1
-#define false   0
-
-bool is_i2c_write_operation_and_got_address_byte(void) {
-    return false; // TODO
-}
-
-bool is_i2c_write_operation_and_got_data_byte(void) {
-    return false; // TODO
-}
-
-bool is_i2c_read_operation_and_got_address_byte(void) {
-    // S = 1, D_A = 0, R_W = 1
-    if (SSP1STATbits.S == 1 && SSP1STATbits.D_nA == 0 && SSP1STATbits.R_nW == 1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
+// ----------------------------------------------------------------------
+// Interrupt Service Routine
 void interrupt ISR(void) {
     if (SSP1IF == 1) {
         SSP1IF = 0;
-        
-        // Read address
+
         if (is_i2c_write_operation_and_got_address_byte()) {
 
         } else if (is_i2c_write_operation_and_got_data_byte()) {
 
         } else if (is_i2c_read_operation_and_got_address_byte()) {
-            unsigned char buffer;
-            buffer = SSP1BUF;
-
-            SSP1BUF = 'a';
-
+            SSP1BUF = chunked(foo);
             SSP1CON1bits.CKP = 1;
-            
-            blink_once();
         }
     }
 }
