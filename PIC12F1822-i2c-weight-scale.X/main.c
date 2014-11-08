@@ -44,7 +44,7 @@ volatile uint16_t foo;
 // ----------------------------------------------------------------------
 // Configuration and initialization functions
 void initialize_data_variables(void) {
-    foo = 0x1234;
+    foo = 0x4711;
 }
 
 
@@ -93,17 +93,14 @@ void configure_i2c(void) {
     GIE = 1;
 }
 
-bool is_i2c_write_operation_and_got_address_byte(void) {
-    return false; // TODO
-}
-
-bool is_i2c_write_operation_and_got_data_byte(void) {
-    return false; // TODO
-}
-
-bool is_i2c_read_operation_and_got_address_byte(void) {
+bool is_i2c_read_operation_and_last_bit_was_an_address_byte(void) {
     // S = 1, D_A = 0, R_W = 1
     return (SSP1STATbits.S == 1 && SSP1STATbits.D_nA == 0 && SSP1STATbits.R_nW == 1);
+}
+
+bool is_i2c_read_operation_and_last_byte_was_a_data_byte(void) {
+    // S = 1, D_A = 1, R_W = 1, BF = 0
+    return (SSP1STATbits.S == 1 && SSP1STATbits.D_nA == 1 && SSP1STATbits.R_nW == 1 && SSP1STATbits.BF == 0);
 }
 
 /*
@@ -167,11 +164,8 @@ void interrupt ISR(void) {
     if (SSP1IF == 1) {
         SSP1IF = 0;
 
-        if (is_i2c_write_operation_and_got_address_byte()) {
-
-        } else if (is_i2c_write_operation_and_got_data_byte()) {
-
-        } else if (is_i2c_read_operation_and_got_address_byte()) {
+        if (is_i2c_read_operation_and_last_bit_was_an_address_byte()
+                || is_i2c_read_operation_and_last_byte_was_a_data_byte()) {
             SSP1BUF = chunked(foo);
             SSP1CON1bits.CKP = 1;
         }
