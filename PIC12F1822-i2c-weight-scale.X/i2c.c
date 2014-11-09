@@ -92,7 +92,7 @@ void i2c_write(uint8_t data) {
     SSP1CON1bits.CKP = 1;
 }
 
-void i2c_2_byte_master_read_request_handler(uint16_t * data_to_send_to_master) {
+void i2c_2_byte_master_read_request_handler(volatile uint16_t * data_to_send_to_master) {
     if (SSP1IF == 1) {
         SSP1IF = 0;
 
