@@ -7,6 +7,7 @@
       <itemPath>bool.h</itemPath>
       <itemPath>i2c.h</itemPath>
       <itemPath>pic_config.h</itemPath>
+      <itemPath>adc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>i2c.c</itemPath>
       <itemPath>pic_config.c</itemPath>
+      <itemPath>adc.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

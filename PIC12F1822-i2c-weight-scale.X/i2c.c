@@ -5,6 +5,7 @@
 
 #include "bool.h"
 
+
 // ----------------------------------------------------------------------
 // Data
 volatile static bit i2c_buffer_index = 0;

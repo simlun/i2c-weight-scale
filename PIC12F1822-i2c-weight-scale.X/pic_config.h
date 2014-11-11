@@ -32,4 +32,3 @@
 void initialize_oscillator(void);
 
 #endif	/* PIC_CONFIG_H */
-
