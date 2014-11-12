@@ -10,8 +10,8 @@
 void initialize_voltage_reference(void) {
     // Set voltage
     //FVRCONbits.ADFVR = 0b01; // 1.024 V
-    //FVRCONbits.ADFVR = 0b10; // 2.048 V
-    FVRCONbits.ADFVR = 0b11; // 4.096 V
+    FVRCONbits.ADFVR = 0b10; // 2.048 V
+    //FVRCONbits.ADFVR = 0b11; // 4.096 V
 
     // Enable
     FVRCONbits.FVREN = 1;

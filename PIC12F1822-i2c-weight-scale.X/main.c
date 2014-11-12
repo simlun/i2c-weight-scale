@@ -14,12 +14,21 @@
 // Data
 volatile uint16_t analog_value = 0x4711;
 
+volatile uint16_t foo[30];
+volatile uint8_t foo_index;
+
 
 // ----------------------------------------------------------------------
 // Configuration and initialization functions
 void initialize_io(void) {
     // Set A5 pin as an output
     TRISA5 = 0;
+
+    int i;
+    for (i = 0; i < 30; i++) {
+        foo[i] = 0;
+    }
+    foo_index = 0;
 }
 
 
@@ -44,7 +53,19 @@ int main(void) {
     blink_once();
 
     while (1) {
-        analog_value = analog_read();
+        foo[foo_index] = analog_read();
+        foo_index++;
+        if (foo_index > 30) {
+            foo_index = 0;
+        }
+
+        uint16_t tmp = 0;
+        int i;
+        for (i = 0; i < 30; i++) {
+            tmp += foo[i];
+        }
+        tmp = tmp / 30;
+        analog_value = tmp;
     }
 }
 
