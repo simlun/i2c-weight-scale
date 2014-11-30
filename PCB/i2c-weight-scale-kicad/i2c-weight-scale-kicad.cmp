@@ -1,0 +1,10 @@
+Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = sön 30 nov 2014 19:27:53
+
+BeginCmp
+TimeStamp = /547B5E77;
+Reference = P1;
+ValeurCmp = 4_STRAIN_GAUGES;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x12;
+EndCmp
+
+EndListe
