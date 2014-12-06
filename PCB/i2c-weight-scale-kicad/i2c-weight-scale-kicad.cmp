@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = lör  6 dec 2014 12:29:20
+Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = lör  6 dec 2014 15:16:41
 
 BeginCmp
 TimeStamp = /547BA8E5;
@@ -11,7 +11,7 @@ BeginCmp
 TimeStamp = /5483054C;
 Reference = J1;
 ValeurCmp = I2C_RJ14;
-IdModule  = ;
+IdModule  = simlun:RJ14_6P4C_right_angle_Molex_95009-7641;
 EndCmp
 
 BeginCmp
