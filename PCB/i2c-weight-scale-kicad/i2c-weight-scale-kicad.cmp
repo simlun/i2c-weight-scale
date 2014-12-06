@@ -1,10 +1,73 @@
-Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = sön 30 nov 2014 19:27:53
+Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = lör  6 dec 2014 12:13:08
+
+BeginCmp
+TimeStamp = /547BA8E5;
+Reference = D1;
+ValeurCmp = LM336;
+IdModule  = Housings_TO-92:TO-92-Free-molded-wide-oval;
+EndCmp
+
+BeginCmp
+TimeStamp = /5483054C;
+Reference = J1;
+ValeurCmp = I2C_RJ14;
+IdModule  = ;
+EndCmp
 
 BeginCmp
 TimeStamp = /547B5E77;
 Reference = P1;
 ValeurCmp = 4_STRAIN_GAUGES;
 IdModule  = Pin_Headers:Pin_Header_Straight_1x12;
+EndCmp
+
+BeginCmp
+TimeStamp = /547BAA9F;
+Reference = R1;
+ValeurCmp = 1K5;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /547BAA17;
+Reference = R2;
+ValeurCmp = 1K;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5480CF0C;
+Reference = R3;
+ValeurCmp = 82;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5480CFE5;
+Reference = R4;
+ValeurCmp = 1K;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5480FBAB;
+Reference = R5;
+ValeurCmp = 10K;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5480C719;
+Reference = U1;
+ValeurCmp = INA126;
+IdModule  = ;
+EndCmp
+
+BeginCmp
+TimeStamp = /5480DD29;
+Reference = U2;
+ValeurCmp = PIC12F1822;
+IdModule  = ;
 EndCmp
 
 EndListe
