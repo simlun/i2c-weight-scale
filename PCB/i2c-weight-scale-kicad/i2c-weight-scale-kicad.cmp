@@ -1,4 +1,4 @@
-Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = lör  6 dec 2014 12:13:08
+Cmp-Mod V01 Created by Cvpcb (2014-11-24 BZR 5301)-product   date = lör  6 dec 2014 12:29:20
 
 BeginCmp
 TimeStamp = /547BA8E5;
@@ -25,49 +25,49 @@ BeginCmp
 TimeStamp = /547BAA9F;
 Reference = R1;
 ValeurCmp = 1K5;
-IdModule  = ;
+IdModule  = Resistors_ThroughHole:Resistor_Vertical_RM5mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /547BAA17;
 Reference = R2;
 ValeurCmp = 1K;
-IdModule  = ;
+IdModule  = Resistors_ThroughHole:Resistor_Vertical_RM5mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /5480CF0C;
 Reference = R3;
 ValeurCmp = 82;
-IdModule  = ;
+IdModule  = Resistors_ThroughHole:Resistor_Vertical_RM5mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /5480CFE5;
 Reference = R4;
 ValeurCmp = 1K;
-IdModule  = ;
+IdModule  = Resistors_ThroughHole:Resistor_Vertical_RM5mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /5480FBAB;
 Reference = R5;
 ValeurCmp = 10K;
-IdModule  = ;
+IdModule  = Resistors_ThroughHole:Resistor_Vertical_RM5mm;
 EndCmp
 
 BeginCmp
 TimeStamp = /5480C719;
 Reference = U1;
 ValeurCmp = INA126;
-IdModule  = ;
+IdModule  = Sockets_DIP:DIP-8__300;
 EndCmp
 
 BeginCmp
 TimeStamp = /5480DD29;
 Reference = U2;
 ValeurCmp = PIC12F1822;
-IdModule  = ;
+IdModule  = Sockets_DIP:DIP-8__300;
 EndCmp
 
 EndListe
