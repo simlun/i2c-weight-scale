@@ -3,7 +3,7 @@
   (general
     (links 26)
     (no_connects 26)
-    (area 31.86523 49.924999 111.33289 130.184001)
+    (area 31.86523 49.924999 111.33289 99.075001)
     (thickness 1.6)
     (drawings 4)
     (tracks 0)
@@ -146,12 +146,12 @@
     (add_net VDD)
   )
 
-  (module Housings_TO-92:TO-92-Free-molded-wide-oval (layer F.Cu) (tedit 548497C0) (tstamp 54848696)
-    (at 69 89 180)
+  (module Housings_TO-92:TO-92-Free-molded-wide-oval (layer F.Cu) (tedit 54860D43) (tstamp 54848696)
+    (at 64 86 180)
     (descr "TO-92 allgemein free molded wide oval drill 0,8mm")
     (tags "TO-92 allgemein free molded wide oval drill 0,8mm")
     (path /547BA8E5)
-    (fp_text reference D1 (at 0 -6 270) (layer F.SilkS)
+    (fp_text reference D1 (at 0 -5 360) (layer F.SilkS)
       (effects (font (thickness 0.3048)))
     )
     (fp_text value LM336 (at 2 5 180) (layer F.SilkS) hide
@@ -232,12 +232,12 @@
     )
   )
 
-  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 5484979B) (tstamp 548486BA)
-    (at 57 85)
+  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54860D30) (tstamp 548486BA)
+    (at 57 82)
     (descr "Resistor, Vertical, RM 5mm, 1/3W,")
     (tags "Resistor, Vertical, RM 5mm, 1/3W,")
     (path /547BAA9F)
-    (fp_text reference R1 (at 1 -3) (layer F.SilkS)
+    (fp_text reference R1 (at 1 3) (layer F.SilkS)
       (effects (font (thickness 0.3048)))
     )
     (fp_text value 1K5 (at 0 4.50088) (layer F.SilkS) hide
@@ -251,12 +251,12 @@
       (net 1 "Net-(D1-Pad2)"))
   )
 
-  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54849798) (tstamp 548486C0)
-    (at 57 79)
+  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54860D33) (tstamp 548486C0)
+    (at 57 76)
     (descr "Resistor, Vertical, RM 5mm, 1/3W,")
     (tags "Resistor, Vertical, RM 5mm, 1/3W,")
     (path /547BAA17)
-    (fp_text reference R2 (at 1 -3) (layer F.SilkS)
+    (fp_text reference R2 (at 1 3) (layer F.SilkS)
       (effects (font (thickness 0.3048)))
     )
     (fp_text value 1K (at 0 4.50088) (layer F.SilkS) hide
@@ -271,7 +271,7 @@
   )
 
   (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 548498B6) (tstamp 548486C6)
-    (at 86 85)
+    (at 87 85.75)
     (descr "Resistor, Vertical, RM 5mm, 1/3W,")
     (tags "Resistor, Vertical, RM 5mm, 1/3W,")
     (path /5480CF0C)
@@ -289,12 +289,12 @@
       (net 15 "Net-(R3-Pad2)"))
   )
 
-  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 548497A6) (tstamp 548486CC)
-    (at 78 74 90)
+  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54860CFB) (tstamp 548486CC)
+    (at 77 74 90)
     (descr "Resistor, Vertical, RM 5mm, 1/3W,")
     (tags "Resistor, Vertical, RM 5mm, 1/3W,")
     (path /5480CFE5)
-    (fp_text reference R4 (at 1 -3 180) (layer F.SilkS)
+    (fp_text reference R4 (at -7 0 180) (layer F.SilkS)
       (effects (font (thickness 0.3048)))
     )
     (fp_text value 1K (at 0 4.50088 90) (layer F.SilkS) hide
@@ -308,12 +308,12 @@
       (net 3 GND))
   )
 
-  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54849795) (tstamp 548486D2)
-    (at 57 73)
+  (module Resistors_ThroughHole:Resistor_Vertical_RM5mm (layer F.Cu) (tedit 54860D36) (tstamp 548486D2)
+    (at 57 70)
     (descr "Resistor, Vertical, RM 5mm, 1/3W,")
     (tags "Resistor, Vertical, RM 5mm, 1/3W,")
     (path /5480FBAB)
-    (fp_text reference R5 (at 1 -3) (layer F.SilkS)
+    (fp_text reference R5 (at 1 3) (layer F.SilkS)
       (effects (font (thickness 0.3048)))
     )
     (fp_text value 10K (at 0 4.50088) (layer F.SilkS) hide
@@ -328,7 +328,7 @@
   )
 
   (module Sockets_DIP:DIP-8__300 (layer F.Cu) (tedit 54849762) (tstamp 548486DE)
-    (at 87 76 90)
+    (at 86 76 90)
     (descr "8 pins DIL package, round pads")
     (tags DIL)
     (path /5480C719)
