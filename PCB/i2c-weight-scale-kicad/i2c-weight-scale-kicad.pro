@@ -1,4 +1,4 @@
-update=mån  1 dec 2014 00:06:54
+update=sön 14 dec 2014 01:55:31
 version=1
 last_client=kicad
 [cvpcb]
@@ -25,8 +25,6 @@ SolderMaskMinWidth=0.000000000000
 DrawSegmentWidth=0.200000000000
 BoardOutlineThickness=0.100000000000
 ModuleOutlineThickness=0.150000000000
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=../../../kicad-library-by-simlun
@@ -62,3 +60,5 @@ LibName28=atmel
 LibName29=contrib
 LibName30=valves
 LibName31=kicad-library-by-simlun
+[general]
+version=1
