@@ -29,12 +29,12 @@ Simply buy a cheap kitchen weight scale, remove its PCB and instead take the
 4x3=12 leads from the 4 strain gauges to create an external port from a 2.54 mm
 pin header.
 
-![Hacked Weight Scale](Pictures/hacked_weight_scale.png)
+![Hacked Weight Scale](Pictures/hacked_weight_scale.jpg)
 
 The I²C Weight Scale PCB is a module that can connect to any weight scale of 4
 strain gauges.
 
-![Connection](Pictures/connection.png)
+![Connection](Pictures/connection.jpg)
 
 
 License
