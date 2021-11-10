@@ -14,7 +14,7 @@ of the load on the strain gauges under a hacked ordinary weight scale.
 Schematic
 ---------
 
-The [KiCad](http://www.kicad-pcb.org/) source files can be found under `PCB/`.
+The [KiCad](http://www.kicad.org/) source files can be found under `PCB/`.
 The schematic rendered as a PDF is reached by clicking the PNG below.. The
 KiCad project depends on [my component library](https://github.com/simlun/kicad-library-by-simlun)
 which should be checked out alongside this repository.
